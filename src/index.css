@@ -101,13 +101,13 @@ input[type=email]::placeholder{color:var(--t3)}
 .rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:28px 20px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease}
 .rc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--y),rgba(255,210,63,.15))}
 .rc.in{opacity:1;transform:translateY(0)}
-.rc-l{font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-family:monospace;color:var(--t3);margin-bottom:12px}
+.rc-l{font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-family:monospace;color:var(--t2);margin-bottom:12px}
 .rc-v{font-size:clamp(26px,4vw,42px);font-weight:900;color:var(--y);letter-spacing:-.035em;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
-.rc-s{font-size:11px;color:var(--t3);line-height:1.55}
+.rc-s{font-size:11px;color:var(--t2);line-height:1.55}
 .cmp-row{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;opacity:0;transition:opacity .4s ease .5s}
 .cmp-row.in{opacity:1}
 .cmp{text-align:center}
-.cmp-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-family:monospace;color:var(--t3);margin-bottom:4px}
+.cmp-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-family:monospace;color:var(--t2);margin-bottom:4px}
 .cmp-v{font-size:22px;font-weight:900;color:var(--y);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .cmp-sep{width:1px;height:36px;background:var(--bdr)}
 .cta-blk{opacity:0;transition:opacity .4s ease .7s;padding-bottom:32px}
