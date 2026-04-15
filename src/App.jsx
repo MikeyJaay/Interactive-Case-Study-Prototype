@@ -7,6 +7,8 @@ import InputCard from './components/InputCard'
 import ResultsSection from './components/ResultsSection'
 import Footer from './components/Footer'
 import Disclaimer from './components/Disclaimer'
+import QuoteBlock from './components/QuoteBlock'
+import UnityStatsStrip from './components/UnityStatsStrip'
 
 export default function App() {
   const [disclaimerDismissed, setDisclaimerDismissed] = useState(false)
@@ -34,7 +36,11 @@ export default function App() {
 
       <Hero />
 
+      {/* Unity by the Numbers — credibility moment before the narrative begins */}
+      <UnityStatsStrip />
+
       {/* 01 — Challenge */}
+      <div className="story-band">
       <StorySection
         id="s1"
         sectionNum="01"
@@ -63,8 +69,17 @@ export default function App() {
           runningValue={c > 0 ? fmtN(c) + ' candidates' : '—'}
         />
       </StorySection>
+      </div>
+
+      {/* Quote A — Chris Weber on the fragmented process */}
+      <QuoteBlock
+        quote="Every business unit from R&D to graphics, AR/VR, operations, and security had nuanced processes. While one team used online testing platforms, another team ran their recruiting processes based on a bug hunt. It was a take-home challenge that became increasingly difficult to manage."
+        name="Chris Weber"
+        title="Global Head of Recruitment, AI & Operate Solutions"
+      />
 
       {/* 02 — Solution */}
+      <div className="story-band story-band--alt">
       <StorySection
         id="s2"
         flip
@@ -94,8 +109,17 @@ export default function App() {
           runningValue={c > 0 && hrs > 0 ? fmtN(hrs) + ' hrs' : '—'}
         />
       </StorySection>
+      </div>
+
+      {/* Quote B — Lauren Allen on candidate feedback improvement */}
+      <QuoteBlock
+        quote="The difference between candidate feedback before and after Codility has been clear. Our engineers are happy with the platform and we aren't getting the negative candidate feedback that we used to have with previous assessment processes."
+        name="Lauren Allen"
+        title="Senior Recruiting Programs Manager"
+      />
 
       {/* 03 — Impact */}
+      <div className="story-band story-band--deep">
       <StorySection
         id="s3"
         sectionNum="03"
@@ -108,6 +132,7 @@ export default function App() {
         statValue={2200}
         statSuffix=""
         statLabel={<>total hours saved<br />across all departments</>}
+        networkBg
       >
         <InputCard
           icon="dollar"
@@ -125,8 +150,23 @@ export default function App() {
           runningValue={c > 0 && hrs > 0 && dlr > 0 ? fmtD(dlr) : '—'}
         />
       </StorySection>
+      </div>
+
+      {/* Quote C — Chris Weber on 2,200 hours saved */}
+      <QuoteBlock
+        quote="With Codility, our teams ran 750 candidate tests over a 90-day period, saving 2,200 hours of interview time. That kind of productivity is like gaining time to launch an entirely new product or enter a new vertical."
+        name="Chris Weber"
+        title="Global Head of Recruitment, AI & Operate Solutions"
+      />
 
       <ResultsSection computed={computed} />
+
+      {/* Quote D — Lauren Allen on remote hiring resilience */}
+      <QuoteBlock
+        quote="We were one of the early companies to shut down offices for the safety of our employees. In just about a week, we seamlessly implemented fully remote recruitment processes globally. And Codility played a significant role in that transition."
+        name="Lauren Allen"
+        title="Senior Recruiting Programs Manager"
+      />
 
       <Footer />
     </>

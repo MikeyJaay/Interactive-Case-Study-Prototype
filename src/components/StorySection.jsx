@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useInView } from '../hooks/useInView'
 import { fmtN } from '../utils/format'
 import { countUp } from '../utils/countUp'
+import NetworkCanvas from './NetworkCanvas'
 
 export default function StorySection({
   id,
@@ -13,6 +14,7 @@ export default function StorySection({
   statValue,
   statSuffix = '',
   statLabel,
+  networkBg = false,
   children,
 }) {
   const [ref, inView] = useInView()
@@ -33,23 +35,25 @@ export default function StorySection({
     <section
       id={id}
       ref={ref}
-      className={`story${flip ? ' flip' : ''}${inView ? ' in' : ''}`}
+      className={`story${flip ? ' flip' : ''}${inView ? ' in' : ''}${networkBg ? ' story--network' : ''}`}
     >
+      {networkBg && <NetworkCanvas />}
       <div className="text">
-        {/* Stat block — visual anchor, animates first */}
-        <div className={`story-stat${statIn ? ' in' : ''}`}>
-          <div className="story-stat-num">{dispStat}</div>
-          <div className="story-stat-lbl">{statLabel}</div>
-        </div>
-
         <div className="sec-label">
           {sectionNum}&nbsp;·&nbsp;{label}
         </div>
         <h2>{title}</h2>
-        {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+        {paragraphs.map((p, i) => (
+          <p key={i} className="story-p" style={{ '--i': i }}>{p}</p>
+        ))}
       </div>
 
       <div className="card-col">
+        {/* Stat block — sits above input card, draws eye before interaction */}
+        <div className={`story-stat${statIn ? ' in' : ''}`}>
+          <div className="story-stat-num">{dispStat}</div>
+          <div className="story-stat-lbl">{statLabel}</div>
+        </div>
         {children}
       </div>
     </section>

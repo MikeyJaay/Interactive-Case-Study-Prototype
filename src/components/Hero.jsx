@@ -40,8 +40,11 @@ export default function Hero() {
         Enter your numbers below to see what that looks like for <strong>your team.</strong>
       </p>
       <div className="scroll-cta">
+        <span className="scroll-text">Enter your numbers below</span>
         <div className="scroll-line" />
-        <span className="scroll-text">Enter your numbers</span>
+        <svg className="scroll-chevron" width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+          <path d="M1 1L10 10L19 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </section>
   )
