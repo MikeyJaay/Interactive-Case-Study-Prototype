@@ -54,10 +54,6 @@ export default function ResultsSection({ computed }) {
     }, 600)
   }
 
-  // preview values (locked state) update live
-  const pvHrs = hrs > 0 ? fmtN(hrs) + ' hrs' : '—'
-  const pvDlr = dlr > 0 ? fmtD(dlr) : '—'
-  const pvPct = hrs > 0 ? fmtP(pct) : '—'
 
   return (
     <section
@@ -72,50 +68,30 @@ export default function ResultsSection({ computed }) {
         </div>
       </div>
 
-      <div className="lock-wrap">
-        {/* Preview stats (always rendered, blurred by overlay) */}
-        <div className="stats-grid">
-          <div className="stat-box hl">
-            <div className="sb-l">Hours Recovered / Qtr</div>
-            <div className="sb-v">{pvHrs}</div>
-            <div className="sb-s">Engineering time returned</div>
+      {/* Email gate */}
+      {!isUnlocked && (
+        <div
+          className="lock-gate"
+          style={{ opacity: lockFading ? 0 : 1, pointerEvents: lockFading ? 'none' : 'auto' }}
+        >
+          <div className="lock-ico"><LockIcon /></div>
+          <div className="lock-t">Unlock Your Results</div>
+          <div className="lock-s">Enter your work email to see your personalized ROI</div>
+          <div className="email-row">
+            <input
+              type="email"
+              placeholder="you@company.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleUnlock()}
+            />
+            <button className="unlock-btn" onClick={handleUnlock}>
+              Unlock →
+            </button>
           </div>
-          <div className="stat-box">
-            <div className="sb-l">Dollar Value Saved</div>
-            <div className="sb-v">{pvDlr}</div>
-            <div className="sb-s">Based on your eng. rate</div>
-          </div>
-          <div className="stat-box">
-            <div className="sb-l">vs. Unity Benchmark</div>
-            <div className="sb-v">{pvPct}</div>
-            <div className="sb-s">Relative to Unity&apos;s result</div>
-          </div>
+          <p className="lock-disclaimer">UI demo only — no email required or collected. Any entry unlocks results.</p>
         </div>
-
-        {/* Lock overlay */}
-        {!isUnlocked && (
-          <div
-            className="lock-overlay"
-            style={{ opacity: lockFading ? 0 : 1, pointerEvents: lockFading ? 'none' : 'auto' }}
-          >
-            <div className="lock-ico"><LockIcon /></div>
-            <div className="lock-t">Unlock Your Results</div>
-            <div className="lock-s">Enter your work email to see your personalized ROI</div>
-            <div className="email-row">
-              <input
-                type="email"
-                placeholder="you@company.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && handleUnlock()}
-              />
-              <button className="unlock-btn" onClick={handleUnlock}>
-                Unlock →
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* Unlocked state */}
       <div
