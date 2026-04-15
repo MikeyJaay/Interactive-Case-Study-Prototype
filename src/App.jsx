@@ -6,8 +6,10 @@ import StorySection from './components/StorySection'
 import InputCard from './components/InputCard'
 import ResultsSection from './components/ResultsSection'
 import Footer from './components/Footer'
+import Disclaimer from './components/Disclaimer'
 
 export default function App() {
+  const [disclaimerDismissed, setDisclaimerDismissed] = useState(false)
   const [candidates, setCandidates] = useState('')
   const [hoursPerAssessment, setHoursPerAssessment] = useState('')
   const [engineerRate, setEngineerRate] = useState('')
@@ -25,6 +27,9 @@ export default function App() {
 
   return (
     <>
+      {!disclaimerDismissed && (
+        <Disclaimer onEnter={() => setDisclaimerDismissed(true)} />
+      )}
       <ProgressBar />
 
       <Hero />
