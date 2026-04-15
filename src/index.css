@@ -36,9 +36,11 @@ html,body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-sys
 .story h2{font-size:clamp(28px,3.8vw,44px);font-weight:800;line-height:1.06;letter-spacing:-.025em;margin-bottom:20px;color:var(--txt)}
 .story h2 em{color:var(--y);font-style:normal}
 .story p{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:16px}
-.callout{display:inline-flex;align-items:center;gap:14px;background:var(--yd);border:1px solid var(--bdy);border-radius:8px;padding:12px 18px;margin-top:8px}
-.callout-n{font-size:24px;font-weight:900;color:var(--y);letter-spacing:-.02em;line-height:1}
-.callout-l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-family:monospace;color:var(--t2);line-height:1.5}
+/* STORY STAT BLOCK */
+.story-stat{border-left:3px solid var(--y);padding-left:20px;margin-bottom:32px;opacity:0;transform:translateX(-12px);transition:opacity .5s ease,transform .5s ease}
+.story-stat.in{opacity:1;transform:translateX(0)}
+.story-stat-num{font-size:clamp(64px,7vw,88px);font-weight:900;color:var(--y);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.story-stat-lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-family:monospace;color:var(--t3);margin-top:8px;line-height:1.6}
 
 /* INPUT CARDS */
 .input-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:28px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
