@@ -3,10 +3,14 @@ import { useState, useEffect } from 'react'
 export default function Disclaimer({ onEnter }) {
   const [visible, setVisible] = useState(false)
 
-  // Slight delay so the page renders behind it before the card pops in
   useEffect(() => {
+    // Lock scroll while modal is open
+    document.body.style.overflow = 'hidden'
     const t = setTimeout(() => setVisible(true), 80)
-    return () => clearTimeout(t)
+    return () => {
+      clearTimeout(t)
+      document.body.style.overflow = ''
+    }
   }, [])
 
   return (

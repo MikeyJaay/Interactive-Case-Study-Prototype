@@ -60,20 +60,17 @@ export default function App() {
           sub="How many engineering candidates does your team assess each quarter?"
           value={candidates}
           onChange={e => setCandidates(e.target.value)}
-          placeholder="0"
+          placeholder="Enter Candidate Volume"
           min={0}
           step={1}
           hint="Unity benchmark: ~250 candidates / quarter"
-          runningShow={c > 0}
-          runningLabel="Assessments to optimize"
-          runningValue={c > 0 ? fmtN(c) + ' candidates' : '—'}
         />
       </StorySection>
       </div>
 
       {/* Quote A — Chris Weber on the fragmented process */}
       <QuoteBlock
-        quote="Every business unit from R&D to graphics, AR/VR, operations, and security had nuanced processes. While one team used online testing platforms, another team ran their recruiting processes based on a bug hunt. It was a take-home challenge that became increasingly difficult to manage."
+        quote={<>"Every business unit from R&D to graphics, AR/VR, operations, and security had nuanced processes. <span className="qb-hl">While one team used online testing platforms, another team ran their recruiting processes based on a bug hunt.</span> It was a take-home challenge that became increasingly difficult to manage."</>}
         name="Chris Weber"
         title="Global Head of Recruitment, AI & Operate Solutions"
       />
@@ -100,20 +97,17 @@ export default function App() {
           sub="How many hours does your engineering team currently spend reviewing each technical assessment today?"
           value={hoursPerAssessment}
           onChange={e => setHoursPerAssessment(e.target.value)}
-          placeholder="3"
+          placeholder="Enter Review Time"
           min={0}
           step={0.5}
           hint="Unity benchmark: 3 hrs per candidate"
-          runningShow={c > 0 && hrs > 0}
-          runningLabel="Projected hours recovered"
-          runningValue={c > 0 && hrs > 0 ? fmtN(hrs) + ' hrs' : '—'}
         />
       </StorySection>
       </div>
 
       {/* Quote B — Lauren Allen on candidate feedback improvement */}
       <QuoteBlock
-        quote="The difference between candidate feedback before and after Codility has been clear. Our engineers are happy with the platform and we aren't getting the negative candidate feedback that we used to have with previous assessment processes."
+        quote={<>"The difference between candidate feedback before and after Codility has been clear. Our engineers are happy with the platform and <span className="qb-hl">we aren't getting the negative candidate feedback</span> that we used to have with previous assessment processes."</>}
         name="Lauren Allen"
         title="Senior Recruiting Programs Manager"
       />
@@ -140,7 +134,7 @@ export default function App() {
           sub="What's your average software engineer's fully-loaded hourly rate? Used to calculate your dollar-value ROI."
           value={engineerRate}
           onChange={e => setEngineerRate(e.target.value)}
-          placeholder="75"
+          placeholder="Enter Hourly Rate"
           min={0}
           step={1}
           prefix="$"
@@ -154,19 +148,12 @@ export default function App() {
 
       {/* Quote C — Chris Weber on 2,200 hours saved */}
       <QuoteBlock
-        quote="With Codility, our teams ran 750 candidate tests over a 90-day period, saving 2,200 hours of interview time. That kind of productivity is like gaining time to launch an entirely new product or enter a new vertical."
+        quote={<>"With Codility, our teams ran <span className="qb-hl">750 candidate tests over a 90-day period, saving 2,200 hours of interview time.</span> That kind of productivity is like gaining time to launch an entirely new product or enter a new vertical."</>}
         name="Chris Weber"
         title="Global Head of Recruitment, AI & Operate Solutions"
       />
 
       <ResultsSection computed={computed} />
-
-      {/* Quote D — Lauren Allen on remote hiring resilience */}
-      <QuoteBlock
-        quote="We were one of the early companies to shut down offices for the safety of our employees. In just about a week, we seamlessly implemented fully remote recruitment processes globally. And Codility played a significant role in that transition."
-        name="Lauren Allen"
-        title="Senior Recruiting Programs Manager"
-      />
 
       <Footer />
     </>
