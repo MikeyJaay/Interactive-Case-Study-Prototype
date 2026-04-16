@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { fmtN } from '../utils/format'
+import NetworkCanvas from './NetworkCanvas'
 
-export default function Hero() {
+export default function Hero({ ready = false }) {
   const [count, setCount] = useState('0')
+  const heroRef = useRef(null)
 
   useEffect(() => {
+    if (!ready) return
     const target = 2200
     const dur = 1800
     let rafId
@@ -24,10 +27,11 @@ export default function Hero() {
       clearTimeout(timer)
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [ready])
 
   return (
-    <section id="hero">
+    <section id="hero" ref={heroRef}>
+      <NetworkCanvas />
       <div className="eyebrow">
         <img src="/unity-logo.png" alt="Unity" className="eyebrow-logo eyebrow-logo--unity" />
         &nbsp;·&nbsp; Customer Story &nbsp;·&nbsp;

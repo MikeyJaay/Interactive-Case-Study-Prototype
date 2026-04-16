@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useInView } from '../hooks/useInView'
 import { fmtN, fmtD, fmtP } from '../utils/format'
 import { countUp } from '../utils/countUp'
+import NetworkCanvas from './NetworkCanvas'
 
 const LockIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -61,6 +62,7 @@ export default function ResultsSection({ computed }) {
       ref={sectionRef}
       className={inView ? 'in' : ''}
     >
+      <NetworkCanvas />
       <div className="res-hd">
         <div className="eyebrow" style={{ marginBottom: 10 }}>Your Personalized ROI</div>
         <div className="res-title">
