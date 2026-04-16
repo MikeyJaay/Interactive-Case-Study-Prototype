@@ -94,5 +94,5 @@ npm run build
 
 ## Author
 
-**Michael Jaro**
+**Michael Jaroszynski**
 [LinkedIn](https://www.linkedin.com/in/michaeljaro/) · [GitHub](https://github.com/MikeyJaay/Interactive-Case-Study-Prototype)
