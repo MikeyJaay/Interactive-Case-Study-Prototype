@@ -34,7 +34,7 @@ export default function App() {
       )}
       <ProgressBar />
 
-      <Hero />
+      <Hero ready={disclaimerDismissed} />
 
       {/* Unity by the Numbers — credibility moment before the narrative begins */}
       <UnityStatsStrip />
@@ -53,6 +53,7 @@ export default function App() {
         statValue={35}
         statSuffix="+"
         statLabel={<>recruiting professionals<br />managing fragmented processes</>}
+        networkBg
       >
         <InputCard
           icon="users"
@@ -90,6 +91,7 @@ export default function App() {
         statValue={3}
         statSuffix=" hrs"
         statLabel={<>of engineering time<br />recovered per assessment</>}
+        networkBg
       >
         <InputCard
           icon="clock"
@@ -139,9 +141,6 @@ export default function App() {
           step={1}
           prefix="$"
           hint="US avg. fully-loaded eng. rate: ~$75–$125/hr"
-          runningShow={c > 0 && hrs > 0 && dlr > 0}
-          runningLabel="Estimated dollar value saved"
-          runningValue={c > 0 && hrs > 0 && dlr > 0 ? fmtD(dlr) : '—'}
         />
       </StorySection>
       </div>

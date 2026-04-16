@@ -17,15 +17,15 @@ html,body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-sys
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 64px;position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
-#hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(255,210,63,.07) 0%,transparent 65%);pointer-events:none}
-.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);font-family:monospace;margin-bottom:28px;position:relative;z-index:1}
-.hero-num{font-size:clamp(80px,18vw,180px);font-weight:900;line-height:.88;color:var(--y);letter-spacing:-.04em;margin-bottom:6px;font-variant-numeric:tabular-nums;position:relative;z-index:1}
-.hero-unit{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-family:monospace;color:var(--t2);margin-bottom:36px;margin-top:18px;position:relative;z-index:1}
-.hero-desc{font-size:clamp(16px,2.4vw,21px);font-weight:300;color:var(--txt);max-width:520px;line-height:1.65;margin-bottom:48px;position:relative;z-index:1}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);font-family:monospace;margin-bottom:36px;position:relative;z-index:1}
+.hero-num{font-size:clamp(120px,24vw,260px);font-weight:900;line-height:.85;color:var(--y);letter-spacing:-.05em;margin-bottom:6px;font-variant-numeric:tabular-nums;position:relative;z-index:1;text-shadow:0 0 120px rgba(255,210,63,.18)}
+.hero-unit{font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-family:monospace;color:var(--t2);margin-bottom:40px;margin-top:32px;position:relative;z-index:1}
+.hero-desc{font-size:clamp(18px,2.8vw,26px);font-weight:300;color:var(--txt);max-width:640px;line-height:1.6;margin-bottom:56px;position:relative;z-index:1}
 .hero-desc strong{font-weight:700}
-.eyebrow-logo{height:46px;width:auto;vertical-align:middle;opacity:.85}
-.eyebrow-logo--unity{height:28px}
+.eyebrow-logo{height:52px;width:auto;vertical-align:middle;opacity:.9}
+.eyebrow-logo--unity{height:32px}
 .scroll-cta{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1}
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,210,63,.35),transparent)}
 .scroll-text{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:monospace;color:var(--t2)}
@@ -70,8 +70,9 @@ input[type=number]::placeholder{color:var(--t3);font-size:16px;font-weight:400;l
 .run-v{font-size:18px;font-weight:900;color:var(--y);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
 /* RESULTS SECTION */
-#results-sec{max-width:900px;margin:0 auto;padding:80px 40px 120px;border-top:1px solid var(--bdr);opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+#results-sec{max-width:900px;margin:0 auto;padding:80px 40px 120px;border-top:1px solid var(--bdr);opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;position:relative;overflow:hidden}
 #results-sec.in{opacity:1;transform:translateY(0)}
+#results-sec>*:not(.network-canvas){position:relative;z-index:1}
 .res-hd{text-align:center;margin-bottom:40px}
 .res-title{font-size:clamp(30px,5vw,50px);font-weight:900;letter-spacing:-.035em;line-height:1;color:var(--txt);margin-bottom:6px}
 .res-title em{color:var(--y);font-style:normal}
@@ -210,6 +211,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;back
 .story--network{position:relative;overflow:hidden}
 .network-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .story--network .text,.story--network .card-col{position:relative;z-index:1}
+#hero .network-canvas{z-index:0}
+#hero>*:not(.network-canvas){position:relative;z-index:1}
 
 @media(max-width:700px){
   .story{grid-template-columns:1fr;gap:32px;padding:60px 20px}
