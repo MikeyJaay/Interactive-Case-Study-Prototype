@@ -1,4 +1,4 @@
-![Codility × Unity Interactive Case Study](./codility-unity-thumbnail.png)
+![Codility × Unity Interactive Case Study](./public/codility-unity-thumbnail.png)
 
 # Interactive Case Study — Codility × Unity
 
