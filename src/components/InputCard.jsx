@@ -53,21 +53,22 @@ export default function InputCard({
   runningLabel,
   runningValue,
 }) {
+  const filled = value !== '' && value !== undefined
+
   return (
-    <div className="input-card">
+    <div className={`input-card${filled ? ' filled' : ''}`}>
       <div className="ic-icon">{ICONS[icon]}</div>
       <div className="ic-label">{label}</div>
       <div className="ic-sub">{sub}</div>
       <div className="inp-wrap">
         {prefix && <span className="inp-pre">{prefix}</span>}
         <input
-          type="number"
+          type="text"
+          inputMode="decimal"
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          min={min}
-          step={step}
-          className={prefix ? 'has-pre' : ''}
+          className={`num-input${prefix ? ' has-pre' : ''}`}
         />
       </div>
       <div className="inp-hint">{hint}</div>
